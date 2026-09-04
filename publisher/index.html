@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>style atlas · 官方规则发布管理</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" /></symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m3 0-1 14H7L6 7m4 4v6m4-6v6" /></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></symbol>
+      <symbol id="icon-rule" viewBox="0 0 24 24"><path d="M6 4h12v16H6zM9 8h6m-6 4h6m-6 4h4" /></symbol>
+    </svg>
+
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark"><svg class="icon"><use href="#icon-rule"></use></svg></span>
+        <div>
+          <strong>style atlas</strong>
+          <span>官方规则发布管理</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="save-status" id="save-status" role="status">正在读取规则…</span>
+        <button class="button button--quiet" id="download-button" type="button">
+          <svg class="icon"><use href="#icon-download"></use></svg>
+          下载 JSON
+        </button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="rule-sidebar" aria-labelledby="rule-list-title">
+        <div class="pane-heading">
+          <div>
+            <h1 id="rule-list-title">官方规则</h1>
+            <p><span id="rule-count">0</span> 条规则</p>
+          </div>
+          <button class="icon-button" id="new-rule-button" type="button" aria-label="新增规则" title="新增规则">
+            <svg class="icon"><use href="#icon-plus"></use></svg>
+          </button>
+        </div>
+        <div class="rule-list" id="rule-list"></div>
+      </aside>
+
+      <section class="editor-pane" aria-labelledby="editor-title">
+        <div class="editor-heading">
+          <div>
+            <span class="eyebrow" id="editor-eyebrow">编辑规则</span>
+            <h2 id="editor-title">选择一条规则</h2>
+          </div>
+          <span class="version" id="rule-version"></span>
+        </div>
+
+        <form id="rule-form" hidden>
+          <label class="field">
+            <span>规则名称</span>
+            <input name="name" maxlength="80" required autocomplete="off" />
+          </label>
+          <label class="field">
+            <span>简介</span>
+            <input name="description" maxlength="240" autocomplete="off" />
+          </label>
+          <label class="field field--content">
+            <span>规则内容</span>
+            <textarea name="prompt" maxlength="8000" required></textarea>
+            <small><span id="prompt-count">0</span> / 8000</small>
+          </label>
+          <div class="form-actions">
+            <button class="button button--danger" id="delete-rule-button" type="button">
+              <svg class="icon"><use href="#icon-trash"></use></svg>
+              删除
+            </button>
+            <button class="button button--primary" id="save-rule-button" type="submit">
+              <svg class="icon"><use href="#icon-check"></use></svg>
+              保存规则
+            </button>
+          </div>
+        </form>
+
+        <div class="editor-empty" id="editor-empty">
+          <svg class="icon"><use href="#icon-rule"></use></svg>
+          <p>从左侧选择规则，或新建一条规则。</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
