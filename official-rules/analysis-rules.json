@@ -1,61 +1,81 @@
 {
-  "schemaVersion": "style-atlas-rules-v1",
+  "schemaVersion": "style-atlas-rules-v3",
   "rules": [
     {
       "id": "general",
       "name": "通用视觉研究",
-      "description": "完整分析构图、层级、字体、色彩、图像、材质与实现方式。",
+      "description": "从构图、层级、字体、色彩、图像与设计判断等维度记录有图片证据的视觉特征。",
       "version": "1.0.0",
-      "prompt": "按通用视觉研究方式分析。各分析维度保持均衡，并优先记录能够从图片像素直接支持的设计事实。",
-      "sha256": "201bd03c686cd8466ffa8be00224a00c9a941f1efa43e2087af60f60ecde08ee"
-    },
-    {
-      "id": "product-ui",
-      "name": "产品界面",
-      "description": "关注信息架构、组件、交互状态、数据密度和响应式关系。",
-      "version": "1.0.0",
-      "prompt": "以产品界面设计评审方式分析，重点覆盖信息架构、组件层级、控件状态、关键任务路径、数据密度、响应式约束与可访问性。实现建议应能直接指导界面重建。",
-      "sha256": "d3d835318765f64df31dc41fc574410de188ad2253edc70d953edb73c30e8502"
-    },
-    {
-      "id": "brand-visual",
-      "name": "品牌视觉",
-      "description": "关注品牌识别、视觉资产、调性、一致性和延展方式。",
-      "version": "1.0.0",
-      "prompt": "以品牌视觉系统研究方式分析，重点覆盖标志使用、字体性格、品牌色、图形语言、摄影或插画策略、调性与跨媒介延展，并区分稳定识别资产和一次性表现手法。",
-      "sha256": "54d811f9c9740fe8d511081c824d4c938f00fe9c46d41edf3759d64ec42d0101"
-    },
-    {
-      "id": "commerce-campaign",
-      "name": "电商与营销",
-      "description": "关注商品层级、卖点表达、转化路径、促销节奏和信任信号。",
-      "version": "1.0.0",
-      "prompt": "以电商与营销转化场景分析，重点覆盖商品主体、卖点层级、价格和促销信息、行动入口、信任信号、信息节奏与不同尺寸投放适配。",
-      "sha256": "9d284997257212369df7330b0e84ce6d528d7f455e26d05f66e3e628d1ba3521"
-    },
-    {
-      "id": "editorial-layout",
-      "name": "编辑与版式",
-      "description": "关注网格、字体层级、阅读节奏、图文关系和印刷感。",
-      "version": "1.0.0",
-      "prompt": "以编辑设计和版式研究方式分析，重点覆盖网格、对齐、字体比例、段落节奏、留白、图文编排、跨页或屏幕阅读顺序，以及可复用的排版规则。",
-      "sha256": "e7f8ce2d162df8a20222773e57c85f1c92b6b44a415b2660976bb780b22b9a1c"
-    },
-    {
-      "id": "packaging",
-      "name": "包装设计",
-      "description": "关注结构、货架识别、信息面、材料工艺和系列化。",
-      "version": "1.0.0",
-      "prompt": "以包装设计研究方式分析，重点覆盖包装结构、主次展示面、货架识别、品牌与法规信息层级、材料和印刷工艺、系列化逻辑与实体制作限制。",
-      "sha256": "052320c2b1a4654a01198a8c3d37b669443a0d35cf25cb9e7d4c389560a2936a"
-    },
-    {
-      "id": "illustration-3d",
-      "name": "插画与 3D",
-      "description": "关注造型、风格谱系、材质光照、构图和资产复用。",
-      "version": "1.0.0",
-      "prompt": "以插画与 3D 视觉资产研究方式分析，重点覆盖造型语言、风格谱系、构图、色彩、材质、光照、镜头、制作方法、透明背景或分层复用方式。",
-      "sha256": "da6c36f71d02eecf7cd07cf01765d9a1b28ad34de57111e3cf1c9828ae1e233e"
+      "kind": "general",
+      "contract": {
+        "version": "2",
+        "kind": "general",
+        "requiredModules": ["visualCore", "rationale"],
+        "optionalModules": ["typography", "color", "imagery"],
+        "hiddenModules": [],
+        "displayOrder": ["visualCore", "rationale", "typography", "color", "imagery"],
+        "moduleDefinitions": {
+          "visualCore": {
+            "label": "视觉结构",
+            "fields": {
+              "composition": { "label": "构图", "type": "string", "maxLength": 5000 },
+              "grid": { "label": "网格", "type": "string", "maxLength": 5000 },
+              "hierarchy": { "label": "信息层级", "type": "string", "maxLength": 5000 },
+              "density": { "label": "信息密度", "type": "string", "maxLength": 500 },
+              "whitespace": { "label": "留白", "type": "string", "maxLength": 5000 },
+              "rhythm": { "label": "视觉节奏", "type": "string", "maxLength": 5000 }
+            }
+          },
+          "rationale": {
+            "label": "判断与建议",
+            "fields": {
+              "whyItWorks": { "label": "为何有效", "type": "array", "maxItems": 24 },
+              "recommendations": { "label": "实现建议", "type": "array", "maxItems": 24 },
+              "avoid": { "label": "避免事项", "type": "array", "maxItems": 24 }
+            }
+          },
+          "typography": {
+            "label": "字体与排版",
+            "fields": {
+              "category": { "label": "字体类别", "type": "string", "maxLength": 500 },
+              "scale": { "label": "字号层级", "type": "string", "maxLength": 5000 },
+              "weight": { "label": "字重", "type": "string", "maxLength": 5000 },
+              "tracking": { "label": "字距", "type": "string", "maxLength": 5000 },
+              "case": { "label": "大小写", "type": "string", "maxLength": 5000 },
+              "notes": { "label": "排版说明", "type": "string", "maxLength": 5000 }
+            }
+          },
+          "color": {
+            "label": "色彩系统",
+            "fields": {
+              "mode": { "label": "明暗模式", "type": "string", "maxLength": 500 },
+              "temperature": { "label": "色温", "type": "string", "maxLength": 500 },
+              "saturation": { "label": "饱和度", "type": "string", "maxLength": 500 },
+              "contrast": { "label": "对比关系", "type": "string", "maxLength": 5000 },
+              "palette": { "label": "色板", "type": "palette", "maxItems": 8 },
+              "notes": { "label": "用色规则", "type": "string", "maxLength": 5000 }
+            }
+          },
+          "imagery": {
+            "label": "图像语言",
+            "fields": {
+              "types": { "label": "图像类型", "type": "array", "maxItems": 24 },
+              "treatment": { "label": "处理方式", "type": "string", "maxLength": 5000 },
+              "cropping": { "label": "裁切方式", "type": "string", "maxLength": 5000 },
+              "notes": { "label": "图像说明", "type": "string", "maxLength": 5000 }
+            }
+          }
+        },
+        "promptKinds": ["imageGeneration", "negative"],
+        "promptDefinitions": {
+          "imageGeneration": { "label": "视觉提示词", "maxLength": 5000 },
+          "uiImplementation": { "label": "UI 实现说明", "maxLength": 5000 },
+          "designTokens": { "label": "设计令牌", "maxLength": 5000 },
+          "negative": { "label": "负面条件", "maxLength": 5000 }
+        }
+      },
+      "prompt": "按通用视觉研究方式分析。各分析维度保持均衡，只记录能够从图片像素直接支持的设计事实；证据不足的字段省略，模块整体不可观察时标记对应状态。",
+      "sha256": "cb082c6e31d5f8302d851b37fe3ae9a6a1221c19c9becad891839318ee34a715"
     }
   ]
 }
