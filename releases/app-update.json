@@ -1,8 +1,8 @@
 {
   "schemaVersion": "style-atlas-app-update-v1",
-  "version": "1.1.0",
-  "downloadUrl": "https://github.com/liuyahui59/style-atlas-updates/releases/latest/download/style-atlas-1.1.0-mac.dmg",
-  "sha256": "5a75764b9889baf267c13b19b1a164b61874ad54ee8e5c701e92dd5fff6c27ed",
-  "notes": "新增免费版 20 张图片配额，并支持购买激活码后永久解锁无限量。",
-  "publishedAt": "2026-09-04T00:00:00Z"
+  "version": "1.1.1",
+  "downloadUrl": "https://github.com/liuyahui59/style-atlas-updates/releases/download/v1.1.1/style-atlas-1.1.1-mac.dmg",
+  "sha256": "0a97697dae35eaf5ce74011f1e661c6d15802e9d7b3851a8733321bb32fdfe49",
+  "notes": "官方规则改为可更新的唯一规则源，支持声明式分析类型与自定义规则；规则异常时不影响素材管理，并按 IBM Carbon 基线改善界面字号。当前 macOS 包使用临时签名，尚未完成 Apple 公证。",
+  "publishedAt": "2026-09-05T12:34:49Z"
 }
