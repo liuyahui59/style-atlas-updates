@@ -1,7 +1,7 @@
 {
   "schemaVersion": "style-atlas-app-update-v1",
   "version": "1.1.1",
-  "downloadUrl": "https://github.com/liuyahui59/style-atlas-updates/releases/download/v1.1.1/style-atlas-1.1.1-mac-20260905-r5.dmg",
+  "downloadUrl": "https://github.com/liuyahui59/style-atlas-updates/releases/download/v1.1.1/style-atlas-1.1.1-mac.dmg",
   "sha256": "0d66e3744ee39cdf06d5420dd62261ae9f7ba2ce7b869107ee747082503a1aa6",
   "notes": "官方规则改为可更新的唯一规则源，支持声明式分析类型与自定义规则；规则异常时不影响素材管理，并按 IBM Carbon 基线优化字号、未分析详情、素材表单与分析队列布局。当前 macOS 包使用临时签名，尚未完成 Apple 公证。",
   "publishedAt": "2026-09-05T13:53:47Z"
