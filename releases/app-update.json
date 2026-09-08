@@ -1,8 +1,12 @@
 {
   "schemaVersion": "style-atlas-app-update-v1",
-  "version": "1.1.1",
-  "downloadUrl": "https://github.com/liuyahui59/style-atlas-updates/releases/download/v1.1.1/style-atlas-1.1.1-mac.dmg",
-  "sha256": "0d66e3744ee39cdf06d5420dd62261ae9f7ba2ce7b869107ee747082503a1aa6",
-  "notes": "官方规则改为可更新的唯一规则源，支持声明式分析类型与自定义规则；规则异常时不影响素材管理，并按 IBM Carbon 基线优化字号、未分析详情、素材表单与分析队列布局。当前 macOS 包使用临时签名，尚未完成 Apple 公证。",
-  "publishedAt": "2026-09-05T13:53:47Z"
+  "version": "1.1.2",
+  "downloadUrl": "https://github.com/liuyahui59/style-atlas-updates/releases/download/v1.1.2/style-atlas-1.1.2-mac.dmg",
+  "sha256": "aaa006947344b22e3a894c28eba6a5fc4b94bd45f7832585751d81fcb2abf028",
+  "notes": "详情升级为速览、设计拆解、Prompt Kit、笔记与来源四视图，支持拖动加宽且不再横向滚动；分析完成后状态与结果自动刷新，并完成资源完整性、本地接口和远程元数据加固。当前 macOS 包使用临时签名，仅用于小范围测试，尚未完成 Apple 公证。",
+  "publishedAt": "2026-09-08T05:24:43Z",
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "s46AdMcoS7jfzMr+2DnP1ezSqQO/oHWvwbPLVv5WhW3tpw1HrCK0zgs/+NKkMh1lgm/vmkK7xhfqA71nRwe6CA=="
+  }
 }
